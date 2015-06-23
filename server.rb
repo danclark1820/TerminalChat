@@ -1,6 +1,9 @@
 #!usr/bin/env ruby -w
 require "socket"
 class Server
+
+  attr_reader :server, :connections
+
   def initialize(port, ip)
     @server = TCPServer.open(ip, port)
     @connections = {}
@@ -40,6 +43,3 @@ class Server
     }
   end
 end
-
-server = Server.new(3000, "localhost")
-server.run
